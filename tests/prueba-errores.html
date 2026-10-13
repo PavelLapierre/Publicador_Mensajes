@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pruebas de errores - Publicador de mensajes</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <h1>Pruebas de errores HTTP</h1>
+      <p class="subtitulo">
+        Escenarios para verificar el tratamiento de respuestas no satisfactorias y errores de conexión.
+      </p>
+    </header>
+
+    <section class="tarjeta">
+      <h2>Escenarios disponibles</h2>
+      <div class="acciones">
+        <button type="button" id="btn-404" class="boton-principal">Probar URL inexistente (404)</button>
+        <button type="button" id="btn-red" class="boton-principal">Probar error de conexión</button>
+      </div>
+      <p class="ayuda">
+        Abre las Herramientas de desarrollo (F12) para revisar las solicitudes en la pestaña Network.
+      </p>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Resultado de la prueba</h2>
+      <p id="resultado-prueba" class="mensaje" role="alert"></p>
+      <pre id="detalle-prueba" class="detalle"></pre>
+    </section>
+
+    <footer class="pie">
+      <a href="../index.html">Volver a la aplicación principal</a>
+    </footer>
+  </main>
+
+  <script src="prueba-errores.js" defer></script>
+</body>
+</html>

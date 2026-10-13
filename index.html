@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicador de mensajes</title>
+  <meta name="description" content="Miniaplicación web que valida, publica y muestra respuestas de una API REST mediante Fetch.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <h1>Publicador de mensajes</h1>
+      <p class="subtitulo">
+        Ingresa un título y un contenido, y envíalos a la API mediante una petición HTTP POST.
+      </p>
+    </header>
+
+    <section class="tarjeta" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Nueva publicación</h2>
+
+      <form id="formulario-publicacion" novalidate>
+        <div class="campo">
+          <label for="titulo">Título <span class="obligatorio" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="titulo"
+            name="title"
+            autocomplete="off"
+            placeholder="Escribe el título de la publicación"
+            aria-required="true"
+            aria-describedby="ayuda-titulo"
+          >
+          <small id="ayuda-titulo" class="ayuda">Obligatorio. No puede estar vacío ni contener solo espacios.</small>
+        </div>
+
+        <div class="campo">
+          <label for="contenido">Contenido <span class="obligatorio" aria-hidden="true">*</span></label>
+          <textarea
+            id="contenido"
+            name="body"
+            rows="5"
+            placeholder="Escribe el contenido de la publicación"
+            aria-required="true"
+            aria-describedby="ayuda-contenido"
+          ></textarea>
+          <small id="ayuda-contenido" class="ayuda">Obligatorio. No puede estar vacío ni contener solo espacios.</small>
+        </div>
+
+        <div class="acciones">
+          <button type="submit" id="boton-publicar" class="boton-principal">
+            <span class="boton-texto">Publicar</span>
+            <span class="spinner" aria-hidden="true" hidden>⟳</span>
+          </button>
+          <span id="indicador-carga" class="indicador-carga" role="status" aria-live="polite" hidden>
+            Procesando solicitud...
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Área de validación / mensajes de estado -->
+    <section id="contenedor-mensajes" class="contenedor-mensajes" aria-live="assertive" aria-atomic="true">
+      <p id="mensaje-estado" class="mensaje" role="alert"></p>
+    </section>
+
+    <!-- Área de resultado -->
+    <section id="contenedor-resultado" class="tarjeta" hidden>
+      <h2>Respuesta de la API</h2>
+      <dl class="resultado-grid">
+        <div class="resultado-item">
+          <dt>ID</dt>
+          <dd id="resultado-id"></dd>
+        </div>
+        <div class="resultado-item">
+          <dt>Título</dt>
+          <dd id="resultado-titulo"></dd>
+        </div>
+        <div class="resultado-item">
+          <dt>Contenido</dt>
+          <dd id="resultado-contenido"></dd>
+        </div>
+        <div class="resultado-item">
+          <dt>Usuario</dt>
+          <dd id="resultado-usuario"></dd>
+        </div>
+      </dl>
+      <p class="nota-persistencia">
+        Nota: JSONPlaceholder devuelve una respuesta simulada; no garantiza almacenamiento permanente.
+      </p>
+    </section>
+
+    <footer class="pie">
+      <small>Actividad de Ingeniería Web · JavaScript asíncrono, Fetch API y DOM</small>
+    </footer>
+  </main>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
